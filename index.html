@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Special Hug For Nimish 💖</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(to right, #ff9a9e, #fecfef);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ff69b4;
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #ff69b4;
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background: #ff1493;
+}
+
+.hug {
+  font-size: 80px;
+  animation: hugMove 1s infinite alternate;
+}
+
+@keyframes hugMove {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="formBox">
+  <h2>Type your name to get your Hug 🤗💖</h2>
+  <input type="text" id="nameInput" placeholder="Enter your name">
+  <br>
+  <button onclick="giveHug()">Get My Hug</button>
+</div>
+
+<div class="container hidden" id="hugBox">
+  <div class="hug">🤗💞</div>
+  <h2 id="hugMessage"></h2>
+  <p>This hug travelled miles just for youuuu 💌✨</p>
+</div>
+
+<script>
+function giveHug() {
+  var name = document.getElementById("nameInput").value;
+
+  if(name.trim() === "") {
+    alert("First enter your nameee 💖");
+    return;
+  }
+
+  document.getElementById("formBox").classList.add("hidden");
+  document.getElementById("hugBox").classList.remove("hidden");
+
+  document.getElementById("hugMessage").innerHTML =
+    "Awwww " + name + " 🥹💗 This is your tightest Hug from Palak 🤗💖";
+}
+</script>
+
+</body>
+</html>
