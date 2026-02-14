@@ -1,96 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Happy Valentine's Day ❤️</title>
 <meta charset="UTF-8">
-<title>Special Hug For Nimish 💖</title>
+
 <style>
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: linear-gradient(to right, #ff9a9e, #fecfef);
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
+body{
+  margin:0;
+  padding:0;
+  text-align:center;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(45deg,#ff9a9e,#fad0c4);
+  overflow:hidden;
+  color:white;
 }
 
-.container {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.container{
+  margin-top:100px;
 }
 
-input {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ff69b4;
-  margin-top: 10px;
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:#ff4b5c;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
 }
 
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background: #ff69b4;
-  color: white;
-  cursor: pointer;
-  margin-top: 15px;
+#surprise{
+  display:none;
+  margin-top:30px;
 }
 
-button:hover {
-  background: #ff1493;
+.heart{
+  position:fixed;
+  color:white;
+  animation: float 5s linear infinite;
+  font-size:20px;
 }
 
-.hug {
-  font-size: 80px;
-  animation: hugMove 1s infinite alternate;
-}
-
-@keyframes hugMove {
-  from { transform: scale(1); }
-  to { transform: scale(1.2); }
-}
-
-.hidden {
-  display: none;
+@keyframes float{
+  0%{transform:translateY(100vh); opacity:1;}
+  100%{transform:translateY(-10vh); opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container" id="formBox">
-  <h2>Type your name to get your Hug 🤗💖</h2>
-  <input type="text" id="nameInput" placeholder="Enter your name">
-  <br>
-  <button onclick="giveHug()">Get My Hug</button>
+<div class="container">
+<h1>Happy Valentine's Day Nimish 💖</h1>
+<p>I have a little surprise for you 😘</p>
+<button onclick="showLove()">Click Here Baby 💌</button>
+
+<div id="surprise">
+<h2>You are my forever person 💕</h2>
+
+<video width="300" controls autoplay>
+<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+</video>
+
+<p>I love you more than words can say 💞</p>
+</div>
 </div>
 
-<div class="container hidden" id="hugBox">
-  <div class="hug">🤗💞</div>
-  <h2 id="hugMessage"></h2>
-  <p>This hug travelled miles just for youuuu 💌✨</p>
-</div>
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
 
 <script>
-function giveHug() {
-  var name = document.getElementById("nameInput").value;
-
-  if(name.trim() === "") {
-    alert("First enter your nameee 💖");
-    return;
-  }
-
-  document.getElementById("formBox").classList.add("hidden");
-  document.getElementById("hugBox").classList.remove("hidden");
-
-  document.getElementById("hugMessage").innerHTML =
-    "Awwww " + name + " 🥹💗 This is your tightest Hug from Palak 🤗💖";
+function showLove(){
+  document.getElementById("surprise").style.display="block";
 }
+
+setInterval(function(){
+  var heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*20+10)+"px";
+  document.body.appendChild(heart);
+  setTimeout(function(){heart.remove();},5000);
+},500);
 </script>
 
 </body>
